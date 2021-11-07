@@ -1,23 +1,27 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Esercitazione from './esercitazione.js';
 import './index.css';
 
-
-export default function ListaEsercitazione(props) {
+const ListaEsercitazione = ({ esercizi, idEsercizio, rimuoviEsercitazione }) => {
+    const listaEsercizi = esercizi.filter((esercizio) => {
+        return esercizio.id == idEsercizio;
+    });
+    const esercizio = listaEsercizi.shift();
+    const esercitaz =  esercizio == null ? [] : esercizio.esercitazioni;
+    const lista = esercitaz.map((esercitazio) => 
+        <Esercitazione key={esercitazio.id}
+            esercitazione={esercitazio}
+            rimuoviEsercitazione={rimuoviEsercitazione}
+        />
+    );
     debugger;
-    const lista = props.value.map((esercitazione) =>
-    <Esercitazione key={esercitazione.id}
-            value={esercitazione} 
-            onRimuoviEsercitazione={(a) => {props.onRimuoviEsercitazione(a)}}
-            />
-  );
+const a = 'a';
     return (
         <div>
-        <div>Lista esercitazioni</div>
-        {lista}
+            <div>Lista esercitazioni</div>
+            {lista}
         </div>
     );
 
 }
-
+export default ListaEsercitazione;

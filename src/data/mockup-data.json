@@ -7,17 +7,17 @@
         "esercitazioni": [
             {
                 "id": 1,
-                "data": "30/10/2021",
+                "data": "2021/10/30",
                 "note": "tutto ok"
             },
             {
                 "id": 2,
-                "data": "29/10/2021",
+                "data": "2021/10/21",
                 "note": "tutto no"
             },
             {
                 "id": 3,
-                "data": "31/10/2021",
+                "data": "2021/10/15",
                 "note": "tutto si"
             }
         ]
@@ -30,17 +30,17 @@
         "esercitazioni": [
             {
                 "id": 4,
-                "data": "30/10/2021",
+                "data": "2021/10/3",
                 "note": "tutto ok"
             },
             {
                 "id": 5,
-                "data": "29/11/2021",
+                "data": "2021/11/13",
                 "note": "tutto no"
             },
             {
                 "id": 6,
-                "data": "31/11/2021",
+                "data": "2021/11/23",
                 "note": "tutto si"
             }
         ]
@@ -59,4 +59,4 @@
         "idScheda": 2,
         "esercitazioni": []
     }
-];
+]

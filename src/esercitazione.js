@@ -4,34 +4,30 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import TextField from '@mui/material/TextField';
 import DateTimePicker from '@mui/lab/DateTimePicker';
-
-export default function Esercitazione(props) {
-    const handleClick = () => {
-        props.onRimuoviEsercitazione(props.value.id);
-    }
+const Esercitazione = ({ esercitazione, rimuoviEsercitazione }) => {
+debugger;
     return (
         <div class="orizzontali">
             <div>
-                <IconButton aria-label="delete" onClick={() => {handleClick()}}>
+                <IconButton aria-label="delete" onClick={() => { rimuoviEsercitazione(esercitazione.id) }}>
                     <DeleteIcon />
                 </IconButton>
             </div>
-            <div class="verticali">
 
                 <div>
-                <DateTimePicker
-          label="Data"
-          readOnly
-          value={props.value.data}
-
-          renderInput={(params) => <TextField {...params} />}
-        /> 
+                    <DateTimePicker
+                        label="Data"
+                        readOnly
+                        value={new Date(esercitazione.data)}
+                        name="data"
+                        renderInput={(params) => <TextField {...params} />}
+                    />
 
                 </div>
                 <div>
-                    Note : {props.value.note}
+                    Note : {esercitazione.note}
                 </div>
             </div>
-        </div>
     );
 }
+export default Esercitazione;

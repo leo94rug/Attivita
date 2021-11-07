@@ -1,20 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import Button from '@mui/material/Button';
 import './index.css';
-import ListaEsercitazione from './lista-esercitazione.js';
 
+const Esercizio = ({esercizio,handleSetIdEsercizio}) => {
 
-export default function Esercizio(props) {
-    debugger;
     return (
         <div class="esercizio">
-            <div>
-                {props.value.nome}            
-            </div>
-            <div>
-            <ListaEsercitazione value={props.value.esercitazioni} onRimuoviEsercitazione={props.onRimuoviEsercitazione}></ListaEsercitazione>
-
-            </div>
+          
+            <Button variant="contained"  onClick={() => handleSetIdEsercizio(esercizio.id)}>
+            {esercizio.nome}   
+            </Button>
         </div>
     );
 }
+
+export default  Esercizio;

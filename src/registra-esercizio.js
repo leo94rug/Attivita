@@ -10,9 +10,9 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import Button from '@mui/material/Button';
 
 
-export default function RegistraEsercizio(props) {
+ const RegistraEsercizio = ({esercizi,value,add,addData,submit}) => {
 
-    const items = props.esercizi.map((esercizio) => (
+    const items = esercizi.map((esercizio) => (
         <MenuItem value={esercizio.id} key={esercizio.id}>{esercizio.nome}</MenuItem>
     ));
     return (
@@ -24,9 +24,9 @@ export default function RegistraEsercizio(props) {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     name="esercizio"
-                    value={props.value.esercizio}
+                    value={value.esercizio}
                     label="Registra label"
-                    onChange={props.add}
+                    onChange={add}
                 >
                     {items}
                 </Select>
@@ -34,8 +34,8 @@ export default function RegistraEsercizio(props) {
                     renderInput={(inp) => <TextField {...inp} />}
                     label="DateTimePicker"
                     name="data"
-                    value={props.value.data}
-                    onChange={props.addData}
+                    value={value.data}
+                    onChange={addData}
                 />
                 <TextField
                     id="outlined-multiline-flexible"
@@ -43,13 +43,13 @@ export default function RegistraEsercizio(props) {
                     multiline
                     maxRows={4}
                     name="note"
-                    value={props.value.note}
-                    onChange={props.add}
+                    value={value.note}
+                    onChange={add}
                 />
-                <Button variant="contained" onClick ={props.submit}>Contained</Button>
+                <Button variant="contained" onClick ={submit}>Contained</Button>
             </FormControl>
         </div>
     );
-
 }
+export default RegistraEsercizio;
 
