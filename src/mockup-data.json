@@ -1,0 +1,62 @@
+[
+    {
+        "nome": "Panca",
+        "descrizione": "descri",
+        "id": 1,
+        "idScheda": 1,
+        "esercitazioni": [
+            {
+                "id": 1,
+                "data": "30/10/2021",
+                "note": "tutto ok"
+            },
+            {
+                "id": 2,
+                "data": "29/10/2021",
+                "note": "tutto no"
+            },
+            {
+                "id": 3,
+                "data": "31/10/2021",
+                "note": "tutto si"
+            }
+        ]
+    },
+    {
+        "nome": "Alzate",
+        "descrizione": "descri2",
+        "id": 2,
+        "idScheda": 1,
+        "esercitazioni": [
+            {
+                "id": 4,
+                "data": "30/10/2021",
+                "note": "tutto ok"
+            },
+            {
+                "id": 5,
+                "data": "29/11/2021",
+                "note": "tutto no"
+            },
+            {
+                "id": 6,
+                "data": "31/11/2021",
+                "note": "tutto si"
+            }
+        ]
+    },
+    {
+        "nome": "Flessioni",
+        "descrizione": "descri3",
+        "id": 3,
+        "idScheda": 1,
+        "esercitazioni": []
+    },
+    {
+        "nome": "Flessioni",
+        "descrizione": "descri3",
+        "id": 4,
+        "idScheda": 2,
+        "esercitazioni": []
+    }
+];
