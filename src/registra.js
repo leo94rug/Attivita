@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './index.css';
-import Filtrascheda from './filtra-scheda.js';
-import ListaEsercizio from './lista-esercizio.js';
-import RegistraEsercizio from './registra-esercizio.js';
-import ListaEsercitazioni from './lista-esercitazione.js';
+import Filtrascheda from './components-registra/filtra-scheda.js';
+import ListaEsercizio from './components-registra/lista-esercizio.js';
+import { nanoid } from 'nanoid';
+import ListaEsercitazioni from './components-registra/lista-esercitazione.js';
 import Container from '@mui/material/Container';
 import dataEsercizi from './data/mockup-data.json';
-
 
 export default function Registra() {
 
@@ -16,7 +15,7 @@ export default function Registra() {
     const [nuovaEsercitazione, setNuovaEsercitazione] = useState({
         id: '',
         esercizio: '',
-        data: null,
+        data: new Date(),
         note: ''
     });
 
@@ -33,13 +32,49 @@ export default function Registra() {
         });
         setEsercizi(appoggioEsercizi);
     }
+    const handleNuovaEsercitazioneChange = (event) => {
+
+        event.preventDefault();
+        const fieldName = event.target.name;
+        const fieldValue = event.target.value;
+        const newFormData = { ...nuovaEsercitazione };
+        newFormData[fieldName] = fieldValue;
+        setNuovaEsercitazione(newFormData);
+    }
+    const handleNuovaEsercitazioneSubmit = () => {
+        const myNuovaEsercitazione = {
+            id: nanoid(),
+            esercizio: idEsercizio,
+            data: nuovaEsercitazione.data,
+            note: nuovaEsercitazione.note
+        };
+        const newEsercizi = esercizi.slice();
+
+        const esercizioIndex = esercizi.findIndex((esercizio) => esercizio.id === idEsercizio);
+        const newEserciatazioni = [...esercizi[esercizioIndex].esercitazioni, myNuovaEsercitazione];
+        esercizi[esercizioIndex].esercitazioni = newEserciatazioni;
+        setEsercizi(newEsercizi);
+        setNuovaEsercitazione({
+            id: '',
+            esercizio: '',
+            data: new Date(),
+            note: ''
+        });
+    }
     return (
         <Container maxWidth="xl">
             <Filtrascheda value={idScheda}
                 onChangeScheda={setScheda}></Filtrascheda>
 
             <ListaEsercizio idScheda={idScheda} esercizi={esercizi} handleSetIdEsercizio={handleSetIdEsercizio}></ListaEsercizio>
-            <ListaEsercitazioni esercizi={esercizi} idEsercizio={idEsercizio} rimuoviEsercitazione={rimuoviEsercitazione}></ListaEsercitazioni>
+            <ListaEsercitazioni
+                esercizi={esercizi}
+                idEsercizio={idEsercizio}
+                rimuoviEsercitazione={rimuoviEsercitazione}
+                nuovaEsercitazione={nuovaEsercitazione}
+                handleNuovaEsercitazioneSubmit={handleNuovaEsercitazioneSubmit}
+                handleNuovaEsercitazioneChange={handleNuovaEsercitazioneChange}>
+            </ListaEsercitazioni>
         </Container>
     );
 };

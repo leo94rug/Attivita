@@ -1,9 +1,9 @@
 import React from 'react';
-import './index.css';
+import '../index.css';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
-import dataSchede from './data/mockup-schede.json';
+import dataSchede from '../data/mockup-schede.json';
 function sleep(delay = 0) {
     return new Promise((resolve) => {
         setTimeout(resolve, delay);
@@ -83,13 +83,5 @@ export default function Filtrascheda(props) {
 
 
 }
-const topFilms = [
-    { nome: 'Scheda 1', id: 1 },
-    { nome: 'Scheda 2', id: 2 },
-    { nome: 'Scheda 3', id: 3 },
-    { nome: 'Scheda 4', id: 4 },
-    { nome: 'Scheda 5', id: 5 },
-    { nome: 'Scheda 6', id: 6 },
 
-];
 
