@@ -19,7 +19,7 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
 
                 <Esercitazione key={esercitazio.id}
                     esercitazione={esercitazio}
-                    handleNuovaEsercitazioneChange={() => {}}
+                    handleNuovaEsercitazioneChange={() => { }}
                 />
                 <IconButton aria-label="delete" onClick={() => { rimuoviEsercitazione(esercitazio.id) }}>
                     <DeleteIcon />
@@ -39,11 +39,14 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
     );
     return (
         <div>
-            <div>Lista esercitazioni</div>
+
             <div class="verticali">
                 <FormControl variant="standard">
                     {(idEsercizio != null) ? (
-                        nuovaEsercit
+                        <div>
+                            <div>Lista esercitazioni</div>
+                            {nuovaEsercit}
+                        </div>
                     ) : (<div></div>)}
                     {lista}
                 </FormControl>
