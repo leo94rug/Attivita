@@ -1,120 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.css';
-import Filtrascheda from './filtra-scheda.js';
-import ListaEsercizio from './lista-esercizio.js';
-import RegistraEsercizio from './registra-esercizio.js';
+import Filtrascheda from './components-registra/filtra-scheda.js';
+import ListaEsercizio from './components-registra/lista-esercizio.js';
+import { nanoid } from 'nanoid';
+import ListaEsercitazioni from './components-registra/lista-esercitazione.js';
 import Container from '@mui/material/Container';
+import dataEsercizi from './data/mockup-data.json';
 
-const esercizi = [
-    {
-        nome: 'Panca', descrizione: 'descri', id: 1, idScheda: 1, esercitazioni: [
-            { id: 1, data: '30/10/2021', note: 'tutto ok' }, { id: 2, data: '29/10/2021', note: 'tutto no' }, { id: 3, data: '31/10/2021', note: 'tutto si' },
-        ]
-    },
-    {
-        nome: 'Alzate', descrizione: 'descri2', id: 2, idScheda: 1, esercitazioni: [
-            { id: 4, data: new Date('30/10/2021'), note: 'tutto ok' }, { id: 5, data: '29/11/2021', note: 'tutto no' }, { id: 6, data: '31/11/2021', note: 'tutto si' },
-        ]
-    },
-    { nome: 'Flessioni', descrizione: 'descri3', id: 3, idScheda: 1, esercitazioni: [] },
-    { nome: 'Flessioni', descrizione: 'descri3', id: 4, idScheda: 2, esercitazioni: [] }
+export default function Registra() {
 
-];
-class Registra extends React.Component {
+    const [idScheda, setScheda] = useState(null);
+    const [idEsercizio, setIdEsercizio] = useState(null);
+    const [esercizi, setEsercizi] = useState(dataEsercizi);
+    const [nuovaEsercitazione, setNuovaEsercitazione] = useState({
+        id: '',
+        esercizio: '',
+        data: new Date(),
+        note: ''
+    });
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            nuovaEsercitazione: {
-                id: '',
-                esercizio: '',
-                data: null,
-                note: ''
-            },
-            idScheda: '',
-            esercizi: [
-            ]
-        };
-    }
-    removeEsercitazione(id) {
+    const handleSetIdEsercizio = (id) => {
         debugger;
-        const appoggioEsercizi = this.state.esercizi.map((esercizio) => {
+        setIdEsercizio(id);
+    }
+    const rimuoviEsercitazione = (id) => {
+        const appoggioEsercizi = esercizi.map((esercizio) => {
             esercizio.esercitazioni = esercizio.esercitazioni.filter(function (esercitazione) {
                 return esercitazione.id !== id;
             });
             return esercizio;
         });
-        this.setState({ esercizi: appoggioEsercizi });
+        setEsercizi(appoggioEsercizi);
     }
-    aggiungiEsercitazione(event) {
-        debugger;
+    const handleNuovaEsercitazioneChange = (event) => {
+
         event.preventDefault();
-        const nome = event.target.name;
-        const valore = event.target.value;
-        const nuovoStato = { ...this.state.nuovaEsercitazione };
-        nuovoStato[nome] = valore;
-        this.setState({ nuovaEsercitazione: nuovoStato });
-
+        const fieldName = event.target.name;
+        const fieldValue = event.target.value;
+        const newFormData = { ...nuovaEsercitazione };
+        newFormData[fieldName] = fieldValue;
+        setNuovaEsercitazione(newFormData);
     }
-    aggiungiEsercitazioneData(valore) {
-        const nuovoStato = { ...this.state.nuovaEsercitazione };
-        nuovoStato['data'] = valore;
-        this.setState({ nuovaEsercitazione: nuovoStato });
+    const handleNuovaEsercitazioneSubmit = () => {
+        const myNuovaEsercitazione = {
+            id: nanoid(),
+            esercizio: idEsercizio,
+            data: nuovaEsercitazione.data,
+            note: nuovaEsercitazione.note
+        };
+        const newEsercizi = esercizi.slice();
 
-    }
-    onSelezionaScheda = (id) => {
-        this.setState({ idScheda: id });
-        this.setState({
-            esercizi: esercizi.filter((esercizio) => {
-                return id == esercizio.idScheda;
-            })
-        });
-
-    }
-    submit = () => {
-        const idEsercizio = this.state.nuovaEsercitazione.esercizio;
-        const note = this.state.nuovaEsercitazione.note;
-        const data = this.state.nuovaEsercitazione.data;
-        const id = Math.floor(Math.random() * 100);
-        debugger;
-        const appoggioEsercizi = this.state.esercizi.map((esercizio) => {
-            if(esercizio.id == idEsercizio){
-                let nuovoStato = esercizio.esercitazioni.slice();
-                nuovoStato.push({ id: id, data: data, note: note });
-                esercizio.esercitazioni= nuovoStato;
-            }
-            return esercizio;
-            
-        });
-
-        this.setState({ esercizi: appoggioEsercizi });
-        this.setState({nuovaEsercitazione: {
+        const esercizioIndex = esercizi.findIndex((esercizio) => esercizio.id === idEsercizio);
+        const newEserciatazioni = [...esercizi[esercizioIndex].esercitazioni, myNuovaEsercitazione];
+        esercizi[esercizioIndex].esercitazioni = newEserciatazioni;
+        setEsercizi(newEsercizi);
+        setNuovaEsercitazione({
             id: '',
             esercizio: '',
-            data: null,
+            data: new Date(),
             note: ''
-        }})
-
-    };
-
-    render() {
-        return (
-            <Container maxWidth="xl">
-                <Filtrascheda value={this.state.idScheda}
-                    onChangeScheda={this.onSelezionaScheda}></Filtrascheda>
-                <RegistraEsercizio
-                    value={this.state.nuovaEsercitazione}
-                    esercizi={this.state.esercizi}
-                    addData={(data) => this.aggiungiEsercitazioneData(data)}
-                    add={(event) => this.aggiungiEsercitazione(event)}
-                    submit={() => this.submit()}
-                >
-
-                </RegistraEsercizio>
-                <ListaEsercizio value={this.state.esercizi} onRimuoviEsercitazione={(a) => this.removeEsercitazione(a)}></ListaEsercizio>
-            </Container>
-        );
+        });
     }
-}
+    return (
+        <Container maxWidth="xl">
+            <Filtrascheda value={idScheda}
+                onChangeScheda={setScheda}></Filtrascheda>
 
-export default Registra;
+            <ListaEsercizio idScheda={idScheda} esercizi={esercizi} handleSetIdEsercizio={handleSetIdEsercizio}></ListaEsercizio>
+            <ListaEsercitazioni
+                esercizi={esercizi}
+                idEsercizio={idEsercizio}
+                rimuoviEsercitazione={rimuoviEsercitazione}
+                nuovaEsercitazione={nuovaEsercitazione}
+                handleNuovaEsercitazioneSubmit={handleNuovaEsercitazioneSubmit}
+                handleNuovaEsercitazioneChange={handleNuovaEsercitazioneChange}>
+            </ListaEsercitazioni>
+        </Container>
+    );
+};
+
+
+

@@ -1,9 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import '../index.css';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import CircularProgress from '@mui/material/CircularProgress';
+import dataSchede from '../data/mockup-schede.json';
 function sleep(delay = 0) {
     return new Promise((resolve) => {
         setTimeout(resolve, delay);
@@ -11,7 +11,7 @@ function sleep(delay = 0) {
 }
 export default function Filtrascheda(props) {
     const [open, setOpen] = React.useState(false);
-    const [options, setOptions] = React.useState([]);
+    const [options, setOptions] = React.useState(dataSchede);
     const loading = open && options.length === 0;
 
     React.useEffect(() => {
@@ -25,7 +25,7 @@ export default function Filtrascheda(props) {
             await sleep(1e3); // For demo purposes.
 
             if (active) {
-                setOptions([...topFilms]);
+                setOptions([...dataSchede]);
             }
         })();
 
@@ -55,10 +55,7 @@ export default function Filtrascheda(props) {
                 }}
                 value={props.scheda}
                 onChange={(event, newValue) => {
-                    let lid = newValue == null ? '' : newValue.id;
-                    props.onChangeScheda(lid); 
-
-
+                    props.onChangeScheda(newValue == null ? '' : newValue.id); 
                 }}
                 isOptionEqualToValue={(option, value) => option.nome === value.nome}
                 getOptionLabel={(option) => option.nome}
@@ -86,13 +83,5 @@ export default function Filtrascheda(props) {
 
 
 }
-const topFilms = [
-    { nome: 'Scheda 1', id: 1 },
-    { nome: 'Scheda 2', id: 2 },
-    { nome: 'Scheda 3', id: 3 },
-    { nome: 'Scheda 4', id: 4 },
-    { nome: 'Scheda 5', id: 5 },
-    { nome: 'Scheda 6', id: 6 },
 
-];
 

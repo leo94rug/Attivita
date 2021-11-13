@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Board from './board.js';
+import Definizione from './definizione.js';
 import Registra from './registra.js';
 import Storico from './storico.js';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -27,11 +27,13 @@ const routes = [
     {
         path: "/storico",
         page: () => <Storico />
+    },
+    {
+        path: "/definizione",
+        page: () => <Definizione />
     }
 ];
 class Page extends React.Component {
-
-
 
     render() {
         return (
@@ -66,6 +68,9 @@ class Page extends React.Component {
                     </Link>
                     <Link to="/storico" underlayColor="#f0f4f7">
                         <div>Storico</div>
+                    </Link>
+                    <Link to="/definizione" underlayColor="#f0f4f7">
+                        <div>Definizione</div>
                     </Link>
                 </LocalizationProvider>
             </div>
