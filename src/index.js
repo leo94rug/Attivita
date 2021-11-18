@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Definizione from './definizione.js';
 import Registra from './registra.js';
-import Storico from './storico.js';
+import Associazione from './associazione.js';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
@@ -25,8 +25,8 @@ const routes = [
         page: () => <Registra />
     },
     {
-        path: "/storico",
-        page: () => <Storico />
+        path: "/associazione",
+        page: () => <Associazione />
     },
     {
         path: "/definizione",
@@ -66,8 +66,8 @@ class Page extends React.Component {
                     <Link to="/registra" underlayColor="#f0f4f7">
                         <div>Registra</div>
                     </Link>
-                    <Link to="/storico" underlayColor="#f0f4f7">
-                        <div>Storico</div>
+                    <Link to="/associazione" underlayColor="#f0f4f7">
+                        <div>Associazione</div>
                     </Link>
                     <Link to="/definizione" underlayColor="#f0f4f7">
                         <div>Definizione</div>

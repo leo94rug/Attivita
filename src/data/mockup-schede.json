@@ -1,9 +1,61 @@
 [
-    { "nome": "Scheda 1", "id": 1,"attiva" : true },
-    { "nome": "Scheda 2", "id": 2,"attiva" : true  },
-    { "nome": "Scheda 3", "id": 3,"attiva" : false  },
-    { "nome": "Scheda 4", "id": 4,"attiva" : false  },
-    { "nome": "Scheda 5", "id": 5,"attiva" : false  },
-    { "nome": "Scheda 6", "id": 6,"attiva" : false  }
-
+    {
+        "nome": "Scheda 1",
+        "id": 1,
+        "idAttivita": 1,
+        "attiva": true,
+        "esercizi": [
+            {
+                "id": 1,
+                "nome": "panca",
+                "ord":1
+            },
+            {
+                "id": 2,
+                "nome": "Addominali bassi",
+                "ord":2
+            }
+        ]
+    },
+    {
+        "nome": "Scheda 2",
+        "id": 2,
+        "idAttivita": 1,
+        "attiva": true,
+        "esercizi": [
+            {
+                "id": 3,
+                "nome": "Corsa",
+                "ord":1
+            }
+        ]
+    },
+    {
+        "nome": "Scheda 3",
+        "id": 3,
+        "idAttivita": 1,
+        "attiva": false,
+        "esercizi": []
+    },
+    {
+        "nome": "Scheda 4",
+        "id": 4,
+        "idAttivita": 2,
+        "attiva": false,
+        "esercizi": []
+    },
+    {
+        "nome": "Scheda 5",
+        "id": 5,
+        "idAttivita": 2,
+        "attiva": false,
+        "esercizi": []
+    },
+    {
+        "nome": "Scheda 6",
+        "id": 6,
+        "idAttivita": 2,
+        "attiva": false,
+        "esercizi": []
+    }
 ]

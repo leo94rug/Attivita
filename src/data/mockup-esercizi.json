@@ -11,8 +11,53 @@
         "nomeUnita3": "serie",
         "tipoDato3": "01",
         "unitaMisura3": "n.",
-        "id": "1",
-        "idAttivita": "1"
+        "id": 1,
+        "idAttivita": 1
+        
+    },    {
+        "nome": "Addominali bassi",
+        "descrizione": "descri",
+        "nomeUnita1": "peso",
+        "tipoDato1": "01",
+        "unitaMisura1": "kg",
+        "nomeUnita2": "ripetizioni",
+        "tipoDato2": "01",
+        "unitaMisura2": "n.",
+        "nomeUnita3": "serie",
+        "tipoDato3": "01",
+        "unitaMisura3": "n.",
+        "id": 2,
+        "idAttivita": 1
+        
+    },    {
+        "nome": "Corsa",
+        "descrizione": "descri",
+        "nomeUnita1": "peso",
+        "tipoDato1": "01",
+        "unitaMisura1": "kg",
+        "nomeUnita2": "ripetizioni",
+        "tipoDato2": "01",
+        "unitaMisura2": "n.",
+        "nomeUnita3": "serie",
+        "tipoDato3": "01",
+        "unitaMisura3": "n.",
+        "id": 3,
+        "idAttivita": 1
+        
+    },    {
+        "nome": "Flessioni",
+        "descrizione": "descri",
+        "nomeUnita1": "peso",
+        "tipoDato1": "01",
+        "unitaMisura1": "kg",
+        "nomeUnita2": "ripetizioni",
+        "tipoDato2": "01",
+        "unitaMisura2": "n.",
+        "nomeUnita3": "serie",
+        "tipoDato3": "01",
+        "unitaMisura3": "n.",
+        "id": 4,
+        "idAttivita": 1
         
     }
 ]

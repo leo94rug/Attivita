@@ -15,7 +15,7 @@ debugger;
     return (
         <div>
             <div>Lista esercizi</div>
-            <div class="orizzontali">{lista}</div>
+            <div className="orizzontali">{lista}</div>
 
         </div>
     );

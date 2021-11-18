@@ -15,7 +15,7 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
     const esercitaz = esercizio == null ? [] : esercizio.esercitazioni;
     const lista = esercitaz.map((esercitazio) => {
         return (
-            <div class="orizzontali">
+            <div className="orizzontali">
 
                 <Esercitazione key={esercitazio.id}
                     esercitazione={esercitazio}
@@ -27,7 +27,7 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
             </div>)
     });
     const nuovaEsercit = (
-        <div class="orizzontali">
+        <div className="orizzontali">
             <Esercitazione key={nuovaEsercitazione.id}
                 esercitazione={nuovaEsercitazione}
                 handleNuovaEsercitazioneChange={handleNuovaEsercitazioneChange}
@@ -40,7 +40,7 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
     return (
         <div>
 
-            <div class="verticali">
+            <div className="verticali">
                 <FormControl variant="standard">
                     {(idEsercizio != null) ? (
                         <div>

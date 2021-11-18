@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import './index.css';
-import Filtrascheda from './components-registra/filtra-scheda.js';
+import Filtra from './components-registra/filtra.js';
 import ListaEsercizio from './components-registra/lista-esercizio.js';
 import { nanoid } from 'nanoid';
 import ListaEsercitazioni from './components-registra/lista-esercitazione.js';
 import Container from '@mui/material/Container';
 import dataEsercizi from './data/mockup-data.json';
+import dataSchede from './data/mockup-schede.json';
 
 export default function Registra() {
-
+    const vDataSchede = [...dataSchede];
     const [idScheda, setScheda] = useState(null);
     const [idEsercizio, setIdEsercizio] = useState(null);
     const [esercizi, setEsercizi] = useState(dataEsercizi);
     const [nuovaEsercitazione, setNuovaEsercitazione] = useState({
-        id: '',
-        esercizio: '',
+        id: "",
+        esercizio: "",
         data: new Date(),
-        note: ''
+        note: ""
     });
 
     const handleSetIdEsercizio = (id) => {
@@ -55,16 +56,15 @@ export default function Registra() {
         esercizi[esercizioIndex].esercitazioni = newEserciatazioni;
         setEsercizi(newEsercizi);
         setNuovaEsercitazione({
-            id: '',
-            esercizio: '',
+            id: "",
+            esercizio: "",
             data: new Date(),
-            note: ''
+            note: ""
         });
     }
     return (
         <Container maxWidth="xl">
-            <Filtrascheda value={idScheda}
-                onChangeScheda={setScheda}></Filtrascheda>
+            <Filtra onChangeSelection={setScheda} data={vDataSchede}></Filtra>
 
             <ListaEsercizio idScheda={idScheda} esercizi={esercizi} handleSetIdEsercizio={handleSetIdEsercizio}></ListaEsercizio>
             <ListaEsercitazioni

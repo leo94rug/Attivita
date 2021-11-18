@@ -5,7 +5,7 @@ import '../index.css';
 const Esercizio = ({esercizio,handleSetIdEsercizio}) => {
 
     return (
-        <div class="esercizio">
+        <div className="esercizio">
           
             <Button variant="contained"  onClick={() => handleSetIdEsercizio(esercizio.id)}>
             {esercizio.nome}   

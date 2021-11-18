@@ -1,9 +1,9 @@
 [
-    { "nome": "Attivita 1", "id": "1" },
-    { "nome": "Attivita 2", "id": "2"  },
-    { "nome": "Attivita 3", "id": "3" },
-    { "nome": "Attivita 4", "id": "4" },
-    { "nome": "Attivita 5", "id": "5" },
-    { "nome": "Attivita 6", "id": "6" }
+    { "nome": "Attivita 1", "id": 1 },
+    { "nome": "Attivita 2", "id": 2  },
+    { "nome": "Attivita 3", "id": 3 },
+    { "nome": "Attivita 4", "id": 4 },
+    { "nome": "Attivita 5", "id": 5 },
+    { "nome": "Attivita 6", "id": 6 }
 
 ]
