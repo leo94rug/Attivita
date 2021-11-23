@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@mui/material/Button';
-import '../index.css';
+import '../../index.css';
 
 const Esercizio = ({esercizio,handleSetIdEsercizio}) => {
 

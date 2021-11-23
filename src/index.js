@@ -6,6 +6,10 @@ import Registra from './registra.js';
 import Associazione from './associazione.js';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import * as serviceWorker from './serviceWorker';
+import store from './redux/store'
+import { Provider } from 'react-redux'
+
 
 import {
     BrowserRouter,
@@ -82,6 +86,11 @@ class Page extends React.Component {
 
 ReactDOM.render(
     <BrowserRouter>
-        <Page /></BrowserRouter>,
+        <Provider store={store}>
+            <Page />
+        </Provider> 
+    </BrowserRouter>,
     document.getElementById('root')
 );
+serviceWorker.unregister();
+

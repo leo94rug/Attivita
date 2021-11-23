@@ -1,6 +1,6 @@
 import React from 'react';
 import Esercizio from './esercizio.js';
-import '../index.css';
+import '../../index.css';
 
 const ListaEsercizio = ({ idScheda, esercizi, handleSetIdEsercizio }) => {
 debugger;

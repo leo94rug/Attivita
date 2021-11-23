@@ -2,19 +2,14 @@ import React, { useState } from 'react';
 import './index.css';
 import Container from '@mui/material/Container';
 import dataAttivita from './data/mockup-attivita.json';
-import Filtra from './components-registra/filtra.js';
-import AssociaEsercizio from './components-associazione/associa-esercizio.js';
+import Filtra from './common/filtra.js';
+import AssociaEsercizio from './components/associazione/associa-esercizio.js';
 import dataSchede from './data/mockup-schede.json';
 import dataEsercizi from './data/mockup-esercizi.json';
 
 import {
-    GridContextProvider,
-    GridDropZone,
-    GridItem,
-    swap,
-    move
+    swap
 } from "react-grid-dnd";
-import Esercizio from './components-registra/esercizio';
 
 export default function Associazione() {
     const vDataAttivita = [...dataAttivita];

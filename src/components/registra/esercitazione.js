@@ -1,5 +1,5 @@
 import React from 'react';
-import '../index.css';
+import '../../index.css';
 
 import TextField from '@mui/material/TextField';
 import DateTimePicker from '@mui/lab/DateTimePicker';
@@ -37,3 +37,4 @@ const Esercitazione = ({ esercitazione, handleNuovaEsercitazioneChange }) => {
     );
 }
 export default Esercitazione;
+

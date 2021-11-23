@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './index.css';
-import InsertScheda from './components-definizione/insert-scheda.js';
-import InsertAttivita from './components-definizione/insert-attivita.js';
-import InsertEsercizio from './components-definizione/insert-esercizio.js';
+import InsertScheda from './components/definizione/insert-scheda.js';
+import InsertAttivita from './components/definizione/insert-attivita.js';
+import InsertEsercizio from './components/definizione/insert-esercizio.js';
 import { nanoid } from 'nanoid';
 import Container from '@mui/material/Container';
 import TabContext from '@mui/lab/TabContext';

@@ -1,13 +1,21 @@
 import React from 'react';
 import Esercitazione from './esercitazione.js';
-import '../index.css';
+import '../../index.css';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import AddIcon from '@mui/icons-material/Add';
 import FormControl from '@mui/material/FormControl';
+import { connect } from 'react-redux'
+import { rimuoviEsercitazione, handleNuovaEsercitazioneSubmit,handleNuovaEsercitazioneChange } from '../../redux'
 
-const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleNuovaEsercitazioneSubmit, handleNuovaEsercitazioneChange, rimuoviEsercitazione }) => {
+const ListaEsercitazione = ({ nuovaEsercitazione,esercizi,idEsercizio, rimuoviEsercitazione, handleNuovaEsercitazioneSubmit,handleNuovaEsercitazioneChange  }) => {
     debugger;
+    if(esercizi == null){
+        esercizi = [{
+            id : 1,
+            esercitazioni : []
+        }]
+    }
     const listaEsercizi = esercizi.filter((esercizio) => {
         return esercizio.id === idEsercizio;
     });
@@ -26,8 +34,10 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
                 </IconButton>
             </div>)
     });
+
     const nuovaEsercit = (
         <div className="orizzontali">
+        
             <Esercitazione key={nuovaEsercitazione.id}
                 esercitazione={nuovaEsercitazione}
                 handleNuovaEsercitazioneChange={handleNuovaEsercitazioneChange}
@@ -37,6 +47,7 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
             </IconButton>
         </div>
     );
+    
     return (
         <div>
 
@@ -55,4 +66,25 @@ const ListaEsercitazione = ({ esercizi, nuovaEsercitazione, idEsercizio, handleN
     );
 
 }
-export default ListaEsercitazione;
+  const mapStateToProps = state => {
+    debugger;
+    return {
+        
+        nuovaEsercitazione: state.esercitazione.nuovaEsercitazione,
+        esercizi: state.esercitazione.esercizi,
+        idEsercizio: state.esercitazione.idEsercizio
+    }
+  }
+  
+  const mapDispatchToProps = dispatch => {
+    return {
+        rimuoviEsercitazione: (id) => dispatch(rimuoviEsercitazione(id)),
+        handleNuovaEsercitazioneSubmit : () => dispatch(handleNuovaEsercitazioneSubmit()),
+        handleNuovaEsercitazioneChange: () => dispatch(handleNuovaEsercitazioneChange())
+    }
+  }
+  
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(ListaEsercitazione);

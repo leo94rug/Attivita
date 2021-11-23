@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { nanoid } from "nanoid";
-import data from "../data/mockup-esercizi.json";
+import data from "../../data/mockup-esercizi.json";
 import ReadOnlyRow from "./readonly-row.js";
 import EditableRow from "./editable-row.js";
 import MenuItem from '@mui/material/MenuItem';

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './index.css';
-import Filtra from './components-registra/filtra.js';
-import ListaEsercizio from './components-registra/lista-esercizio.js';
+import Filtra from './common/filtra.js';
+import ListaEsercizio from './components/registra/lista-esercizio.js';
 import { nanoid } from 'nanoid';
-import ListaEsercitazioni from './components-registra/lista-esercitazione.js';
+import ListaEsercitazioni from './components/registra/lista-esercitazione.js';
 import Container from '@mui/material/Container';
 import dataEsercizi from './data/mockup-data.json';
 import dataSchede from './data/mockup-schede.json';
@@ -67,13 +67,7 @@ export default function Registra() {
             <Filtra onChangeSelection={setScheda} data={vDataSchede}></Filtra>
 
             <ListaEsercizio idScheda={idScheda} esercizi={esercizi} handleSetIdEsercizio={handleSetIdEsercizio}></ListaEsercizio>
-            <ListaEsercitazioni
-                esercizi={esercizi}
-                idEsercizio={idEsercizio}
-                rimuoviEsercitazione={rimuoviEsercitazione}
-                nuovaEsercitazione={nuovaEsercitazione}
-                handleNuovaEsercitazioneSubmit={handleNuovaEsercitazioneSubmit}
-                handleNuovaEsercitazioneChange={handleNuovaEsercitazioneChange}>
+            <ListaEsercitazioni>
             </ListaEsercitazioni>
         </Container>
     );
